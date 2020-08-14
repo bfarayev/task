@@ -6,7 +6,7 @@ _task_completion()
   # Remove colon from work breaks
   COMP_WORDBREAKS=${COMP_WORDBREAKS//:}
 
-  scripts=$(task -l | sed '1d' | sed 's/^\* //' | awk '{ print $1 }');
+  scripts=$(task -l | sed '1d' | sed 's/^\* //' | awk -F ': ' '{ print $1 }');
 
   curr_arg="${COMP_WORDS[COMP_CWORD]:-"."}"
 
